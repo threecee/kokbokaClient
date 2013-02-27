@@ -1,0 +1,94 @@
+#popupPanel-popup {
+    right: 0 !important;
+    left: auto !important;
+}
+#popupPanel {
+    width: 200px;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: -1px 0;
+}
+#popupPanel .ui-btn {
+    margin: 1em 15px;
+}
+.addTask .ui-btn-inner {
+    height: 19px;
+    padding-top: 8px;
+}
+
+.addTaskTop  .ui-field-contain {
+    margin-bottom:0.2em;
+    padding-bottom:0em;
+}
+.addTaskBottom .ui-field-contain {
+    margin-top:0.2em;
+    padding-top:0em;
+}
+
+
+#editRecipe .ui-icon-checkbox-off, #profil .ui-icon-checkbox-off {
+    background-image: url("../../images/trashcan2.png");
+    cursor: pointer;
+    vertical-align: middle;
+    background-position: 0px 0px;
+    width: 14px;
+    height: 18px;
+}
+
+.suggestions .ui-link-inherit {
+    padding: 0px;
+    padding-left:15px;
+}
+
+.ui-btn .ui-icon-left, .ui-btn .ui-icon-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+}
+.ui-btn .ui-icon-left {
+    left: 10px;
+}
+
+.ui-btn .ui-icon-right {
+    right: 10px;}
+
+
+.ui-btn .ui-btn-divider-left, .ui-btn .ui-btn-divider-right {
+    box-shadow: rgba(255,255,255,0.8) 1px 0px 0px;
+    height: 50px;
+    top: -8px;
+    position: absolute;
+    width: 32px;
+}
+
+.ui-btn .ui-btn-divider-left {
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    left: 0px;
+}
+.ui-btn .ui-btn-divider-right {
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    right: 0px;
+}
+
+.tagger .ui-btn, .tagger .ui-btn-inner { display: inline; font-weight: 100; font-size: 13px; padding-left: 4px; padding-right: 4px;}
+#editRecipe .tagger .ui-btn, #editRecipe .tagger .ui-btn-inner { font-size: 16px;  padding-right: 20px;}
+
+.tagger .ui-btn-icon-right .ui-icon { right: -13px;}
+.tagger .ui-btn {
+    padding-top: 2px;
+padding-bottom: 2px;
+padding-left: 5px;}
+
+.tagger .tagButton {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+}
+.taggListe {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}

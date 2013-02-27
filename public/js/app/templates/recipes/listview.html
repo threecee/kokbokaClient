@@ -1,0 +1,5 @@
+<% _.each( results, function( item, i ){ %>
+<li data-theme="c">
+    <a data-ajax="false" href="#recipe/<%= item.get("id") %>" data-transition="slide"><%= item.get("title") %></a>
+</li>
+<% }); %>
