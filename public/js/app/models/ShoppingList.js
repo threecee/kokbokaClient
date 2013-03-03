@@ -4,7 +4,7 @@ define( ['jquery', 'backbone', 'models/ShoppingListItem'],
             "use strict";
 
             var ShoppingList = Backbone.Collection.extend( {
-                url: "http://ccc.local:9000/json/shoppinglists/getShoppingListJSON",
+                url: "http://ccc.local:9000/json/shoppinglists",
                 model: ShoppingListItem,
                 //localStorage: new Backbone.LocalStorage("shoppinglists-backbone"),
                 parse: function( response ) {

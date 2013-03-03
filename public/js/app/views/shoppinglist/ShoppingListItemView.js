@@ -4,7 +4,6 @@ define( ['jquery', 'backbone', 'models/ShoppingListItem', 'text!templates/shoppi
             "use strict";
 
             var ShoppingListItemView = Backbone.View.extend( {
-                //el: $( "#shoppingListview" ),
                 template : _.template( listTemplate ),
 
                 events: {
@@ -18,9 +17,21 @@ define( ['jquery', 'backbone', 'models/ShoppingListItem', 'text!templates/shoppi
                    this.listenTo(this.model, 'destroy', this.remove);
                  },
                 render: function() {
-                      this.$el.html(this.template(this.model.toJSON()));
-                      this.$el.toggleClass('done', this.model.get('done'));
-                    //  this.input = this.$('.edit');
+                    var shouldRender = true;
+                      if(this.$el.children().length > 0  != '' && this.$el.attr("checked") == 'true' && this.model.checked)
+                      {
+                          shouldRender = false;
+                      }
+                    if(this.$el.children().length > 0  && this.$el.attr("checked") != 'true' && !this.model.checked)
+                    {
+                        shouldRender = false;
+                    }
+
+                    if(shouldRender)
+                    {
+                        this.$el.html(this.template(this.model.toJSON()));
+                    }
+
                       return this;
                     },
                 toggleDone: function() {

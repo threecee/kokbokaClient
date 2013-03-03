@@ -4,7 +4,7 @@ define( ['backbone'],
             "use strict";
 
             var ShoppingListItem = Backbone.Model.extend( {
-                url: function(){ return "http://ccc.local:9000/json/shoppinglists/shoppinglistitem?id=" + this.id},
+                url: function(){ return "http://ccc.local:3000/shoppinglists/" + this.id},
 
                 defaults: function() {
                       return {
@@ -18,7 +18,7 @@ define( ['backbone'],
                       }
                     },
                 toggle: function() {
-                      this.save({done: !this.get("done")});
+                      this.save({checked: !this.get("checked")});
                     }
 
 
