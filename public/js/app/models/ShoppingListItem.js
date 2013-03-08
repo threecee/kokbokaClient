@@ -4,7 +4,7 @@ define( ['backbone'],
             "use strict";
 
             var ShoppingListItem = Backbone.Model.extend( {
-                url: function(){ return "http://ccc.local:3000/shoppinglists/" + this.id},
+                url: function(){ return "http://ccc.local:9000/json/shoppinglists/shoppinglistitem"}, ///" + this.id
 
                 defaults: function() {
                       return {

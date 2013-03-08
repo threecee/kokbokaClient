@@ -20,6 +20,8 @@ define(["jquery", "backbone", "models/Model", "views/View", "views/shoppinglist/
                 Backbone.baseUrl = 'http://localhost:9000';
                 Backbone.useJSONP = true;
 
+                //Backbone.emulateHTTP = true;
+                //Backbone.emulateJSON = true;
 
 
                 //Backbone.emulateHTTP = true;
