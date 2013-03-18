@@ -15,6 +15,8 @@ require.config({
       "jquerymobile": "libs/jquery.mobile-1.3.0",
       "underscore": "libs/underscore-1.4.4",
       "backbone": "libs/backbone-0.9.10",
+      "backbone-relational": "libs/backbone-relational-0.8.0",
+      "backbone-all": "libs/backbone-all",
 
       // Plugins
       // -------
@@ -54,8 +56,15 @@ require.config({
         // Exports the global window.Backbone object
         "exports": "Backbone"
 
-      }
+      },
 
+      'underscore': {
+           exports: '_'
+       },
+
+
+
+      "backbone-relational": ["backbone"]
       // Backbone.validateAll plugin that depends on Backbone
     //  "backbone.validateAll": ["backbone"]
 

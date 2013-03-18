@@ -1,6 +1,8 @@
-<input id="<%= id %>"
+<% var randomId = Math.random()*100; %>
+
+<input id="<%= randomId %>"
    name="<%= description %>" type="checkbox" <% if(checked) { %>
 checked="true" <%  } %> >
-<label for="<%= id %>">
+<label for="<%= randomId %>">
     <span><%= amount %></span> <%= unit %> <%= description %>
 </label>

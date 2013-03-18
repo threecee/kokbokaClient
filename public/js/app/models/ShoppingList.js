@@ -1,32 +1,29 @@
-define( ['jquery', 'backbone', 'models/ShoppingListItem'],
-        function( $, Backbone, ShoppingListItem ) {
+define( ['jquery', 'backbone',  'models/ShoppingListItem', 'models/ShoppingListItems'],
+        function( $, Backbone, ShoppingListItem, ShoppingListItems ) {
             // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
             "use strict";
 
-            var ShoppingList = Backbone.Collection.extend( {
+            var ShoppingList = Backbone.Model.extend( {
                 url: "http://ccc.local:9000/json/shoppinglists",
-                model: ShoppingListItem,
-                //localStorage: new Backbone.LocalStorage("shoppinglists-backbone"),
-                parse: function( response ) {
-                    return response;
-                },
+                initialize: function(attributes) {
+               //     this.set('shoppingListIngredients', new ShoppingListItems());
+               //     this.set('shoppingListIngredients', new ShoppingListItems());
 
-                done: function() {
-                      return this.filter(function(item){ return item.get('done'); });
-                    },
-                remaining: function() {
-                      return this.without.apply(this, this.done());
-                    },
-                nextOrder: function() {
-                      if (!this.length) return 1;
-                      return this.last().get('order') + 1;
-                    },
-                comparator: function(item) {
-                      return item.get('order');
-                    }
+                    this.on('shoppingListIngredients:add', this.add, this);
+                   this.on('shoppingListIngredients:reset', this.reset, this);
+                this.on('shoppingListIngredients:all', this.all, this);
+
+                   //this.set('shoppingListIngredients', new ShoppingListItems(attributes.shoppingListIngredients || []));
+                 },
+                parse: function( response ) {
+                    this.shoppingListIngredients = new ShoppingListItems(response.shoppingListIngredients || []);
+
+                    return response;
+
+
+                }
 
             } );
-
             return ShoppingList;
         } );
             
