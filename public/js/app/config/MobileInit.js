@@ -2,6 +2,8 @@
 // -------------
 require.config({
 
+  deps:["main"],
+
   // Sets the js folder as the base directory for all future relative paths
   baseUrl: "./js",
 
@@ -11,6 +13,8 @@ require.config({
 
       // Core Libraries
       // --------------
+      "app": "app/app",
+      "main": "app/main",
       "jquery": "libs/jquery-1.9.1",
       "jquerymobile": "libs/jquery.mobile-1.3.0",
       "underscore": "libs/underscore-1.4.4",
@@ -64,33 +68,13 @@ require.config({
 
 
 
-      "backbone-relational": ["backbone"]
+      "backbone-relational": ["backbone"],
       // Backbone.validateAll plugin that depends on Backbone
     //  "backbone.validateAll": ["backbone"]
+
+      // Configure dependencies for the main application.
+      "main": ["backbone-all"]
 
   }
 
 });
-
-// Include Mobile Specific JavaScript files here (or inside of your Mobile router)
-require(["jquery", "backbone", "routers/MobileRouter", "jquerymobile", "app"],
-
-  function($, Backbone, MobileRouter) {
-
-    // Prevents all anchor click handling
-    $.mobile.linkBindingEnabled = false;
-
-    // Disabling this will prevent jQuery Mobile from handling hash changes
-    $.mobile.hashListeningEnabled = false;
-
-      $.mobile.linkBindingEnabled = false;
-      $.mobile.ajaxEnabled  = false;
-
-
-
-    // Instantiates a new Mobile Router instance
-    new MobileRouter();
-
-  }
-
-);

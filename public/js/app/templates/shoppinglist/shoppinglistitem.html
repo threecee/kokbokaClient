@@ -4,5 +4,6 @@
    name="<%= description %>" type="checkbox" <% if(checked) { %>
 checked="true" <%  } %> >
 <label for="<%= randomId %>">
-    <span><%= amount %></span> <%= unit %> <%= description %>
+    <% if(type!="onthefly") { %>
+         <span><%= amount %></span> <%= unit %> <% } %> <%= description %>
 </label>

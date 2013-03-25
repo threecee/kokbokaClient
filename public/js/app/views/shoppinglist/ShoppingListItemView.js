@@ -1,5 +1,5 @@
-define( ['jquery', 'backbone', 'models/ShoppingListItem', 'text!templates/shoppinglist/shoppinglistitem.html'],
-        function( $, Backbone, ShoppingListItem, listTemplate ) {
+define( ['jquery', 'backbone', 'models/ShoppingListIngredient', 'text!templates/shoppinglist/shoppinglistitem.html'],
+        function( $, Backbone, ShoppingListIngredient, listTemplate ) {
             // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
             "use strict";
 

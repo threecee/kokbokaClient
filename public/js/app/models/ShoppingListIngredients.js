@@ -1,15 +1,14 @@
-define( ['jquery', 'backbone', 'models/ShoppingListItem'],
-        function( $,  Backbone, ShoppingListItem ) {
+define( [ 'app', 'models/ShoppingListIngredient'],
+        function(app,  ShoppingListIngredient ) {
             "use strict";
 
-            var ShoppingListItems = Backbone.Collection.extend( {
+            app.ns.ShoppingLists.ShoppingListIngredients = Backbone.Collection.extend( {
                 url: "http://ccc.local:9000/json/shoppinglists/shoppinglistitem",
-                model: ShoppingListItem,
+                model: ShoppingListIngredient,
                 //localStorage: new Backbone.LocalStorage("shoppinglists-backbone"),
-                initialize:{
-
-
-                },
+                initialize: function(attributes) {
+                      console.log(this, 'Initialized');
+                   },
                 parse: function( response ) {
                     return response;
                 },
@@ -30,6 +29,6 @@ define( ['jquery', 'backbone', 'models/ShoppingListItem'],
 
             } );
 
-            return ShoppingListItems;
+            return app.ns.ShoppingLists.ShoppingListIngredients;
         } );
             
