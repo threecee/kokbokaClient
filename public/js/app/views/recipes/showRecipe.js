@@ -1,4 +1,4 @@
-define( ['jquery', 'backbone', 'models/Model', 'models/ResultCollection', 'text!templates/recipes/recipeview.html'],
+define( ['jquery', 'backbone', 'models/Model', 'models/ResultCollection', 'text!templates/recipes/recipe.html'],
         function( $, Backbone, ResultCollection, recipeView ) {
             // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
             "use strict";

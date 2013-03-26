@@ -1,8 +1,8 @@
 // MobileRouter.js
 // ---------------
-define(["app", "models/Model", "views/View", "views/shoppinglist/ShoppingListView"],
+define(["app", "models/Model", "views/View", "views/shoppinglist/ShoppingListView", "views/recipes/RecipeView"],
 
-    function (app, UserModel, View, ShoppingListView) {
+    function (app, UserModel, View, ShoppingListView, RecipeView) {
 
         var MobileRouter = Backbone.Router.extend({
 
@@ -27,7 +27,7 @@ define(["app", "models/Model", "views/View", "views/shoppinglist/ShoppingListVie
                 kokboka.services.allrecipes();
             },
             recipe: function (id) {
-                kokboka.services.getRecipe(id);
+                new RecipeView({id:id});
             },
             index: function () {
                 // Instantiates a new view which will render the header text to the page
