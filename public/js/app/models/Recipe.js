@@ -18,10 +18,10 @@ define( ["app", 'models/Ingredient', 'models/Ingredients'],
                        }
                      ],
               initialize: function(attributes) {
-                    console.log(this, 'Initialized');
+                 //   console.log(this, 'Initialized');
                  },
                 reset: function(attrinutes){
-                    console.log('Reset %o', attrinutes);
+                 //   console.log('Reset %o', attrinutes);
 
                 }
 

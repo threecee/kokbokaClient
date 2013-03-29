@@ -1,4 +1,4 @@
-define( ['jquery', 'utils', "app/views/recipes/showRecipe" , "app/views/recipes/resultList" ],
+define( ['jquery', 'utils', "app/views/recipes/showRecipe" , "app/views/recipes/RecipesView" ],
         function( $ , utils, ShowRecipe, ResultList) {
             // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
             //"use strict";

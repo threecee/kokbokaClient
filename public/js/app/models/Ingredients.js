@@ -6,7 +6,7 @@ define( [ 'app', 'models/Ingredient'],
                 url: "http://ccc.local:9000/json/recipes/ingredient",
                 model: Ingredient,
                 initialize: function(attributes) {
-                      console.log(this, 'Initialized');
+                     // console.log(this, 'Initialized');
                    },
                 parse: function( response ) {
                     return response;

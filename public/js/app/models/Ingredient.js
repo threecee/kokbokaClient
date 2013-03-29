@@ -13,7 +13,7 @@ define( [ 'app', 'models/Recipe'],
                       };
                     },
                 initialize: function() {
-                     console.log(this, 'Initialized');
+                     //console.log(this, 'Initialized');
                       if (!this.get("title")) {
                         this.set({"title": this.defaults().title});
                       }
