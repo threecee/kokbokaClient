@@ -345,62 +345,28 @@
 <!-- Menus:Show -->
 
 <div data-role="page" id="menuShow" data-menu-id="${menu!=null?menu.id:''}">
-#{headerMobile /}
-    <div data-role="content">
-        <h1>Meny for
-                uke ${menu!=null?utils.DateUtil.weekOfYear(menu.usedFromDate):'?'}</h1>
-
-
-        <ul data-role="listview" data-divider-theme="b" data-theme="b" data-inset="true">
-                                #{list items:0..6, as:'i'}
-
-                                        <li data-theme="c" class="task-item" id="${menu.getRecipeForDay(i) != null?menu.getRecipeForDay(i).id:''}">
-                                            <div class="task-body"><a class="check-trash"><span
-                                                    class="icon check-trash"></span></a>
-                                                <a class="icon task-separator"></a>
-
-
-                                                <a class="duedate">${utils.DateUtil.dayOfWeek(utils.DateUtil.addDays(menu.usedFromDate, i))}</a>
-                                                <a class="icon task-separator2"></a>
-
-                                                <div class="title-wrapper"><span
-                                                        class="title">
-                                    #{if menu.getRecipeForDay(i) != null}
-                                        <a data-transition="slide" href="@{Recipes.showMobile(menu.getRecipeForDay(i).id)}">${menu.getRecipeForDay(i).title}</a>
-                                    #{/if}
-                                                    #{else }
-                                                        <a data-transition="slide" href="#">&nbsp;</a>
-                                                    #{/else}
-
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                #{/list}
-        </ul>
-
-
-    #{if request.action == "Menus.showNextWeekMobile" || request.action == "Menus.showThisWeekMobile" }
-        #{if menu.shoppingList!=null }
-            <a data-role="button" data-icon="check" data-iconpos="right" href="@{ShoppingLists.showMobile(menu.id)}">
-                 Handlelapp for meny
-             </a>
-        #{/if}
-        #{else }
-            <a data-role="button"  data-icon="check" data-iconpos="right" href="@{ShoppingLists.listMobile(menu.id)}">
-                 Handlelapp for meny
-             </a>
-        #{/else}
-    #{/if}
-    #{else }
-        <a href="#popupPanel" data-icon="plus" data-iconpos="right" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button">Bruk</a>
-    #{/else}
-
-
+    <div data-theme="a" data-role="header">
+    <h1>
+        Kokboka
+    </h1>
+        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+           data-icon="back" data-role="button" data-theme="a">Tilbake</a>
+        <a href="#preferences"  data-transition="slide"
+           data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
 
     </div>
-#{footerMobile /}
+    <div data-role="content" id="menuContent">
+
+    </div>
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+    	<div data-role="navbar"  data-iconpos="top">
+    		<ul>
+    			<li ><a data-icon="grid" href="#recipes/all" data-ajax="false" class="">Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus/all" class="ui-btn-active ui-state-persist">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists/all" class="">Handle</a></li>
+    		</ul>
+    	</div><!-- /navbar -->
+    </div><!-- /footer -->
 
 
 </div>

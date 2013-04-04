@@ -21,12 +21,14 @@ require.config({
       "backbone": "libs/backbone-0.9.10",
       "backbone-relational": "libs/backbone-relational-0.8.0",
       "backbone-all": "libs/backbone-all",
+      "moment": "libs/moment-2.0.0",
 
       // Plugins
       // -------
      // "backbone.validateAll": "libs/plugins/Backbone.validateAll",
 
       "text": "libs/plugins/text-2.0.5",
+      "moment-lang": "libs/plugins/moment-lang-nb",
 
       // Application Folders
       // -------------------
@@ -40,6 +42,7 @@ require.config({
 
       "templates": "app/templates",
 
+      "utils": "app/utils",
       "views": "app/views"
 
   },
@@ -50,6 +53,9 @@ require.config({
 
       // jQuery Mobile
       "jquerymobile": ["jquery"],
+
+      // moment language plugin
+      "moment-lang": ["moment"],
 
       // Backbone
       "backbone": {

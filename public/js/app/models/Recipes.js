@@ -1,6 +1,5 @@
 define( ["app", 'models/Recipe'],
         function(app, Recipe ) {
-            // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
            // "use strict";
 
             app.ns.Recipes.RecipesClass = Backbone.Collection.extend( {

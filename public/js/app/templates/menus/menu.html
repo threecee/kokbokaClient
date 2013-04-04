@@ -1,0 +1,47 @@
+<h1>Meny for uke <%= app.ns.utils.DateUtil.weekOfYear(model.usedFromDate) %></h1>
+
+
+<ul data-role="listview" data-divider-theme="b" data-theme="b" data-inset="true">
+    <% _.each(recipes, function(recipe, i) { %>
+
+    <li data-theme="c" class="task-item" id="<%= recipe != null ? recipe.id:''  %>">
+        <div class="task-body"><a class="check-trash"><span
+                class="icon check-trash"></span></a>
+            <a class="icon task-separator"></a>
+
+
+            <a class="duedate"><%= app.ns.utils.DateUtil.dayOfWeekName(app.ns.utils.DateUtil.addDays(model.usedFromDate, i)) %></a>
+            <a class="icon task-separator2"></a>
+
+            <div class="title-wrapper"><span
+                    class="title">
+                <% if (recipe != null) { %>
+                    <a data-transition="slide" href="#recipe/<%= recipe.id %>"><%=
+                        recipe.get("title") %></a>
+                <% } else { %>
+                        <a data-transition="slide" href="#">&nbsp;</a>
+                    <% } %>
+
+                </span>
+            </div>
+        </div>
+    </li>
+
+    <% }); %>
+</ul>
+
+
+<% if(model.shoppingList!=null) { %>
+<a data-role="button" data-icon="check" data-iconpos="right" href="#shoppinglists/<%= model.id %>">
+    Handlelapp for meny
+</a>
+<% } else { %>
+<a data-role="button" data-icon="check" data-iconpos="right" href="#shoppinglists/<%= model.id %>/create">
+    Handlelapp for meny
+</a>
+<% } %>
+<!--
+<a href="#popupPanel" data-icon="plus" data-iconpos="right" data-rel="popup" data-transition="slide"
+   data-position-to="window" data-role="button">Bruk</a>
+-->
+

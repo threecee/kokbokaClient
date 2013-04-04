@@ -10,13 +10,16 @@ require.config({
 
       // Core Libraries
       // --------------
-      "jquery": "libs/jquery",
+      "app": "app/app",
+      "main": "app/main",
+      "jquery": "libs/jquery-1.9.1",
+      "jquerymobile": "libs/jquery.mobile-1.3.0",
+      "underscore": "libs/underscore-1.4.4",
+      "backbone": "libs/backbone-0.9.10",
+      "backbone-relational": "libs/backbone-relational-0.8.0",
+      "backbone-all": "libs/backbone-all",
+      "moment": "libs/moment-2.0.0",
 
-      "jquerymobile": "libs/jquery.mobile",
-
-      "underscore": "libs/lodash",
-
-      "backbone": "libs/backbone",
 
       "jasmine": "libs/jasmine",
 
@@ -25,51 +28,62 @@ require.config({
       // Plugins
       // -------
       "backbone.validateAll": "libs/plugins/Backbone.validateAll",
-
-      "bootstrap": "libs/plugins/bootstrap",
-
-      "text": "libs/plugins/text",
-
+ //     "bootstrap": "libs/plugins/bootstrap",
       "jasminejquery": "libs/plugins/jasmine-jquery",
+
+      "moment-lang": "libs/plugins/moment-lang-nb",
+      "text": "libs/plugins/text-2.0.5",
 
       // Application Folders
       // -------------------
       "collections": "app/collections",
-
       "models": "app/models",
-
+      "config": "app/config",
       "routers": "app/routers",
-
       "templates": "app/templates",
-
+      "utils": "app/utils",
       "views": "app/views"
+
 
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
-  shim: {
+    shim: {
 
-      // Twitter Bootstrap jQuery plugins
-      "bootstrap": ["jquery"],
+        // jQuery Mobile
+        "jquerymobile": ["jquery"],
+
+      // moment language plugin
+      "moment-lang": ["moment"],
 
       // Jasmine-jQuery plugin
       "jasminejquery": ["jquery"],
 
-      // jQuery Mobile
-      "jquerymobile": ["jquery"],
+        // Backbone
+        "backbone": {
 
-      // Backbone
-      "backbone": {
-
-          // Lists jQuery and Underscore as dependencies
+          // Depends on underscore/lodash and jQuery
           "deps": ["underscore", "jquery"],
 
-          // Exports the global 'window.Backbone' object
+          // Exports the global window.Backbone object
           "exports": "Backbone"
 
-      },
+        },
 
-      // Backbone.validateAll depends on Backbone
+        'underscore': {
+             exports: '_'
+         },
+
+
+
+        "backbone-relational": ["backbone"],
+        // Backbone.validateAll plugin that depends on Backbone
+      //  "backbone.validateAll": ["backbone"]
+
+        // Configure dependencies for the main application.
+        "main": ["backbone-all"],
+
+              // Backbone.validateAll depends on Backbone
       "backbone.validateAll": ["backbone"],
 
       // Jasmine Unit Testing
@@ -88,20 +102,22 @@ require.config({
         "exports": "jasmine"
 
       }
+    }
 
-  }
 
 });
 
 // Include Desktop Specific JavaScript files here (or inside of your Desktop router)
-require(["jquery", "backbone", "jasmine-html", "jquerymobile", "bootstrap", "backbone.validateAll"],
+require(["jquery", "backbone", "jasmine-html", "jquerymobile", "backbone.validateAll"],
 
   function($, Backbone, jasmine) {
 
     specs = [];
  
-    specs.push('test/specs/spec');
- 
+  //  specs.push('test/specs/spec');
+    specs.push('test/specs/menuspec');
+      specs.push('test/specs/dateutilspec');
+
  
     $(function() {
     

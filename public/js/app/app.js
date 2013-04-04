@@ -8,6 +8,8 @@ define(function() {
   app.ns = {};
   app.ns.ShoppingLists = {};
   app.ns.Recipes = {};
+  app.ns.Menus = {};
+  app.ns.utils = {};
 
 
 

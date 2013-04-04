@@ -1,4 +1,4 @@
-require(["app", "routers/MobileRouter", "jquerymobile"], function(app, MobileRouter) {
+require(["app", "moment", "routers/MobileRouter", "moment-lang", "jquerymobile"], function(app, moment, MobileRouter) {
 
   Backbone.Relational.store.addModelScope(app.ns);
 
@@ -11,6 +11,7 @@ require(["app", "routers/MobileRouter", "jquerymobile"], function(app, MobileRou
       $.mobile.linkBindingEnabled = false;
       $.mobile.ajaxEnabled  = false;
 
+    moment.lang("nb");
 
     // Instantiates a new Mobile Router instance
     new MobileRouter();
