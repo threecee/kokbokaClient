@@ -4,7 +4,7 @@ define( ["app", 'models/Recipe'],
 
             app.ns.Recipes.RecipesClass = Backbone.Collection.extend( {
                 url: "http://ccc.local:9000/json/recipes",
-                model: Recipe,
+                model: app.ns.Recipes.Recipe,
               initialize: function(attributes) {
                     console.log(this, 'Initialized');
                  }

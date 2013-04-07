@@ -11,6 +11,7 @@ define(['app', 'models/Menu', 'text!templates/menus/menu.html', "utils/DateUtil"
                 this.listenTo(this, "rendered", this.options.routing);
                 this.listenTo(this, "rendered", this.transitionView );
 
+                /*
                 if (false && app.ns.Menus.Menus.size() > 0) {
                     this.menu = app.ns.Menus.Menus.find(
                         function (themenu) {
@@ -22,6 +23,18 @@ define(['app', 'models/Menu', 'text!templates/menus/menu.html', "utils/DateUtil"
                     this.menu = new Menu({id: this.id});
                     console.log(this, 'Fetching menu');
                     this.menu.fetch({silent: false});
+                }
+                */
+
+                this.menu = app.ns.Menus.Menu.findOrCreate({id: this.id});
+                if(this.menu.get("class") == undefined)
+                {
+                    console.log(this, 'Fetching menu');
+                    this.menu.fetch({silent: false});
+                }
+                else
+                {
+                    this.render();
                 }
 
                 this.listenTo(this.menu, 'sync', this.render);

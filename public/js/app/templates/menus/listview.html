@@ -1,0 +1,11 @@
+<% _.each( results, function( item, i ){ %>
+        <% if (item.get("recipesInMenu") != null && item.get("recipesInMenu").size() > 0) {  %>
+            <li data-theme="c">
+                <a href="#menu/<%= item.get("id") %>" data-transition="slide">
+                    Uke <%= item.get("usedFromDate") != null ? app.ns.utils.DateUtil.weekOfYear(item.get("usedFromDate")):'?' %>
+                    <span class="datospenn">(<%= app.ns.utils.DateUtil.prettyDate(item.get("usedFromDate")) %>
+                        - <%= app.ns.utils.DateUtil.prettyDate(app.ns.utils.DateUtil.addDays(item.get("usedFromDate"),6)) %>)</span>
+                </a>
+            </li>
+    <% } %>
+<% }); %>

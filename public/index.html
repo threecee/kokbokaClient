@@ -208,7 +208,7 @@
     <h1>
         Kokboka
     </h1>
-        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
            data-icon="back" data-role="button" data-theme="a">Tilbake</a>
         <a href="#preferences"  data-transition="slide"
            data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
@@ -220,9 +220,9 @@
     <div data-role="footer" data-id="foo1" data-position="fixed">
     	<div data-role="navbar"  data-iconpos="top">
     		<ul>
-    			<li ><a data-icon="grid" href="#recipes/all" data-ajax="false" class="">Oppskrift</a></li>
-    			<li><a data-icon="plus" href="#" class="">Meny</a></li>
-                <li><a data-icon="check" href="#" class="">Handle</a></li>
+    			<li ><a data-icon="grid" href="#recipes" data-ajax="false" class="">Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus" class="">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists" class="">Handle</a></li>
     		</ul>
     	</div><!-- /navbar -->
     </div><!-- /footer -->
@@ -239,7 +239,7 @@
     <h1>
         Oppskrift
     </h1>
-        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
            data-icon="back" data-role="button" data-theme="a">Tilbake</a>
         <a href="#preferences"  data-transition="slide"
            data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
@@ -255,9 +255,9 @@
     <div data-role="footer" data-id="foo1" data-position="fixed">
     	<div data-role="navbar"  data-iconpos="top">
     		<ul>
-    			<li ><a data-icon="grid" href="#"  class="ui-btn-active ui-state-persist">Oppskrift</a></li>
-    			<li><a data-icon="plus" href="#" class="">Meny</a></li>
-                <li><a data-icon="check" href="#" class="">Handle</a></li>
+    			<li ><a data-icon="grid" href="#recipes"  class="ui-btn-active ui-state-persist">Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus" class="">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists" class="">Handle</a></li>
     		</ul>
     	</div><!-- /navbar -->
     </div><!-- /footer -->
@@ -271,7 +271,7 @@
     <h1>
         Oppskrift
     </h1>
-        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
            data-icon="back" data-role="button" data-theme="a">Tilbake</a>
         <a href="#preferences"  data-transition="slide"
            data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
@@ -282,9 +282,9 @@
     <div data-role="footer" data-id="foo1" data-position="fixed">
     	<div data-role="navbar"  data-iconpos="top">
     		<ul>
-    			<li ><a data-icon="grid" href="#"  class="ui-btn-active ui-state-persist">Oppskrift</a></li>
-    			<li><a data-icon="plus" href="#" class="">Meny</a></li>
-                <li><a data-icon="check" href="#" class="">Handle</a></li>
+    			<li ><a data-icon="grid" href="#recipes"  class="ui-btn-active ui-state-persist">Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus" class="">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists" class="">Handle</a></li>
     		</ul>
     	</div><!-- /navbar -->
     </div><!-- /footer -->
@@ -300,44 +300,30 @@
 -->
 
 <!-- Menus:Index -->
-<div data-role="page" id="menuIndex">
-#{headerMobile /}
-       <div data-role="content">
-           <h1>
-           #{if request.action == "Menus.indexMobile" }
-               Menyer
-           #{/if}
-           #{if request.action == "Menus.historikkMobile" }
-               Historikk
-           #{/if}
-           #{if request.action == "Menus.showMobile" }
-               Uke ${menu!=null && menu.usedFromDate != null?utils.DateUtil.weekOfYear(menu.usedFromDate):'?'}
-           #{/if}
-           </h1>
-       #{if request.action == "Menus.indexMobile" }
-           <ul data-role="listview" data-divider-theme="b" data-inset="false">
-               <li data-theme="c">
-                   <a href="@{Menus.showThisWeekMobile()}" data-transition="slide">
-                       Denne ukens meny
-                   </a>
-               </li>
-               <li data-theme="c">
-                   <a href="@{Menus.showNextWeekMobile()}" data-transition="slide">
-                       Neste ukes meny
-                   </a>
-               </li>
-               <li data-theme="c">
-                   <a href="@{Menus.historikkMobile()}" data-transition="slide">
-                       Historikk
-                   </a>
-               </li>
-           </ul>
-       #{/if}
+<div data-role="page" id="menus">
+    <div data-theme="a" data-role="header">
+    <h1>
+        Menyer
+    </h1>
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
+           data-icon="back" data-role="button" data-theme="a">Tilbake</a>
+        <a href="#preferences"  data-transition="slide"
+           data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
+
     </div>
-
-#{footerMobile /}
-
-
+       <div data-role="content">
+           <ul data-role="listview" id="menusListview" data-divider-theme="b" data-inset="false">
+           </ul>
+    </div>
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+    	<div data-role="navbar"  data-iconpos="top">
+    		<ul>
+    			<li ><a data-icon="grid" href="#recipes"  >Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus" class="ui-btn-active ui-state-persist">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists" class="">Handle</a></li>
+    		</ul>
+    	</div><!-- /navbar -->
+    </div><!-- /footer -->
 </div>
 
 
@@ -349,21 +335,23 @@
     <h1>
         Kokboka
     </h1>
-        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
            data-icon="back" data-role="button" data-theme="a">Tilbake</a>
         <a href="#preferences"  data-transition="slide"
            data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>
 
     </div>
     <div data-role="content" id="menuContent">
+        <ul data-role="listview" id="menusListview" data-divider-theme="b" data-inset="false">
+        </ul>
 
     </div>
     <div data-role="footer" data-id="foo1" data-position="fixed">
     	<div data-role="navbar"  data-iconpos="top">
     		<ul>
-    			<li ><a data-icon="grid" href="#recipes/all" data-ajax="false" class="">Oppskrift</a></li>
-    			<li><a data-icon="plus" href="#menus/all" class="ui-btn-active ui-state-persist">Meny</a></li>
-                <li><a data-icon="check" href="#shoppinglists/all" class="">Handle</a></li>
+    			<li ><a data-icon="grid" href="#recipes" data-ajax="false" class="">Oppskrift</a></li>
+    			<li><a data-icon="plus" href="#menus" class="ui-btn-active ui-state-persist">Meny</a></li>
+                <li><a data-icon="check" href="#shoppinglists" class="">Handle</a></li>
     		</ul>
     	</div><!-- /navbar -->
     </div><!-- /footer -->
@@ -418,7 +406,7 @@
     <h1>
         Handlelapp
     </h1>
-        <a href="#"  data-rel="back"  data-direction="reverse" data-transition="slide"
+        <a href="#back"  data-rel="back"  data-direction="reverse" data-transition="slide"
            data-icon="back" data-role="button" data-theme="a">Tilbake</a>
         <a href="#preferences"  data-transition="slide"
            data-icon="gear" data-role="button" data-iconpos="right" class="ui-btn-right" data-theme="a">Profil</a>

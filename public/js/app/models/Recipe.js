@@ -1,5 +1,5 @@
-define( ["app", 'models/Ingredient', 'models/Ingredients'],
-        function(app, Ingredient, Ingredients ) {
+define( ["app", 'models/Ingredient', 'models/Ingredients', 'models/Tag', 'models/Tags'],
+        function(app, Ingredient, Ingredients, Tag, Tags ) {
             // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
             "use strict";
 
@@ -15,10 +15,20 @@ define( ["app", 'models/Ingredient', 'models/Ingredients'],
                             key: "recipe",
                             includeInJSON: ["class","entityId","id","persistent"]
                          }
+                       },
+                    {
+                      type: Backbone.HasMany,
+                      key: 'tags',
+                      relatedModel: app.ns.Recipes.Tag,
+                      collectionType: app.ns.Recipes.Tags,
+                      reverseRelation: {
+                         key: "recipe",
+                         includeInJSON: ["class","entityId","id","persistent", "name", "nameHash"]
+                      }
                        }
                      ],
               initialize: function(attributes) {
-                 //   console.log(this, 'Initialized');
+                    console.log(this, 'Initialized');
                  },
                 reset: function(attrinutes){
                  //   console.log('Reset %o', attrinutes);

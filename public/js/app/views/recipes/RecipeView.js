@@ -11,18 +11,26 @@ define(['app', 'models/Recipe', 'views/recipes/IngredientView', 'text!templates/
                 this.listenTo(this, "rendered", this.options.routing);
                 this.listenTo(this, "rendered", this.transitionView );
 
-                if (app.ns.Recipes.Recipes.size() > 0) {
-                    this.recipe = app.ns.Recipes.Recipes.find(
-                        function (therecipe) {
-                            return therecipe.attributes.id == this.id
-                        }, this);
-                    this.render();
-                }
-                else {
-                    this.recipe = new Recipe({id: this.id});
-                    console.log(this, 'Fetching recipe');
-                    this.recipe.fetch({silent: false});
-                }
+             //   if (app.ns.Recipes.Recipes.size() > 0) {
+             //       this.recipe = app.ns.Recipes.Recipes.find(
+             //           function (therecipe) {
+             //               return therecipe.attributes.id == this.id
+             //           }, this);
+             //       this.render();
+             //   }
+            //    else {
+                    this.recipe = app.ns.Recipes.Recipe.findOrCreate({id: this.id});
+                    if(this.recipe.get("class") == undefined)
+                    {
+                        console.log(this, 'Fetching recipe');
+                        this.recipe.fetch({silent: false});
+                    }
+                    else
+                    {
+                        this.render()
+                    }
+
+            //    }
 
                 this.listenTo(this.recipe, 'sync', this.render);
 
@@ -30,6 +38,7 @@ define(['app', 'models/Recipe', 'views/recipes/IngredientView', 'text!templates/
             render: function (attribute) {
                 console.log('render %o', attribute);
                 this.$el = $(this.el);
+                this.recipe.getRelation("tags");
                 this.$el.html(this.template(this.recipe.toJSON()));
                 this.trigger("rendered");
             },

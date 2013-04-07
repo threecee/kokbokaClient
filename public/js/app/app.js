@@ -6,6 +6,7 @@ define(function() {
 
   // app.ns is used for namespacing, mostly used with Backbone-relational.
   app.ns = {};
+  app.ns.Store = {};
   app.ns.ShoppingLists = {};
   app.ns.Recipes = {};
   app.ns.Menus = {};
